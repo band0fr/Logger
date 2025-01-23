@@ -32,7 +32,7 @@
 
     <script>
         function fetchIP() {
-            // Example of how you could make a call to a backend to send the IP
+            // Make a GET request to the backend to fetch and send the IP address
             fetch('/get-ip', { method: 'GET' })
                 .then(response => response.json())
                 .then(data => {
