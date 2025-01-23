@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent to Share IP</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>We need your consent to fetch your IP address</h1>
+    <p>Click the button below to proceed. By clicking, you consent to share your IP address.</p>
+    <button onclick="fetchIP()">Click to Share Your IP</button>
+
+    <script>
+        function fetchIP() {
+            // Example of how you could make a call to a backend to send the IP
+            fetch('/get-ip', { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Your IP has been shared successfully!');
+                    } else {
+                        alert('Failed to fetch IP.');
+                    }
+                })
+                .catch(err => alert('Error: ' + err));
+        }
+    </script>
+</body>
+</html>
